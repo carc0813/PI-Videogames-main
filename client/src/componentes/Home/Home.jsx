@@ -1,12 +1,16 @@
 import React, { Fragment, useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getVideogames,filterByGenres,getGenres,filterCreated} from "../../action/index.js";
+import { getVideogames,
+  filterByGenres,
+  getGenres,
+  filterCreated,
+  sortvgames} from "../../action/index.js";
 
 import { Link } from "react-router-dom";
 import Card from "../Card/Card";
 import Paginado from "../Paginado/Paginado.jsx";
-
+import SearchBar from "../SearchBar/SearchBar.jsx";
 
 
 export default function Home() {
@@ -58,7 +62,13 @@ const [order,setOrder]=useState(""); //estado local
   function handleFilterCreated(e){
     dispatch(filterCreated(e.target.value))
     setOrder(e.target.value)}
-  
+
+
+    function handleSortvgames(e) {
+      e.preventDefault(); 
+      dispatch(sortvgames(e.target.value))
+      setOrder(`Order ${e.target.value}`)  
+  }
 
   return (
     
@@ -77,10 +87,12 @@ const [order,setOrder]=useState(""); //estado local
             <option value={G.name} key={G.id}>{G.name}</option>
           ))} 
         </select>
+        
       </div>
+      <SearchBar/>
       <div>
         <div>Order</div>
-        <select >
+        <select onChange={(e) =>handleSortvgames (e)} >
           <option value="All" default>All</option>
           <option value="asc_name">Alphabetically (A-Z)</option>
           <option value="desc_name">Alphabetically (Z-A)</option>

@@ -8,7 +8,7 @@ const router = Router();
 
 //Add a videogame to the database
 router.post('/', async (req, res) => {  
-//     let { name, description,image,  released , rating, platforms, genre,} = req.body;
+//     let { name, description,image,  released , rating, platforms, genre} = req.body;
 //     platforms = platforms.toString();
     
 //     const addVgame = await Videogame.create({
@@ -22,6 +22,9 @@ router.post('/', async (req, res) => {
 
 //     })
 
+
+
+
 // //Find videogame genres from Genres table       
 //    const vg_genre = await Genre.findAll({
 //        where:{name : genre}
@@ -31,6 +34,7 @@ router.post('/', async (req, res) => {
 
 //     res.send('New video game has been added')
 //   });
+
 const { name, description, image, released, rating, platforms, genre } = req.body;
 
 let platformString = platforms.toString();

@@ -3,13 +3,31 @@ import React from "react";
 // import NotFound from '../NotFound/NotFound';
 
 export default function Card({name, genres, image,rating}) {
-   var genre = genres.toString()
-    if (genre.length>2) {genre = genre.slice(0,2)}
-    if (genre.length === 1) {
-        genre = genre.toString()
-    } else {
-        genre = genre.toString() + " (...)"
-    } 
+  // var expresionRegular = /\s*;\s*/;
+   var genre = genres.toString(" ")
+  //   //  console.log(genre)
+  //   if(genre.length ===1){
+  //     genre=genre[0].toString();
+  //   }
+  //   if(genre>=2){
+  //     genre=genre.slice(0,2)
+  //   }else{
+  //      genre=genre.toString()
+  //   }
+
+
+
+    // if (genre.length>2) {genre = genre.slice(0,2)
+    //  //console.log(genre.length)
+    // }
+    // if (genre.length === 1) {
+    //     genre = genre.toString()
+    // } else {
+    //     genre = genre.toString() + " (...)"
+    // } 
+
+
+ 
   return (
     <div >
         <div className="NameNombres">

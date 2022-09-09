@@ -8,7 +8,7 @@ export default function SearchBar(){
     const dispacth=useDispatch()
 
 
-    const [name,SetName]=useState("")
+    const [name,SetName]=useState(" ")
     
  
  
@@ -21,7 +21,13 @@ export default function SearchBar(){
  
     function handleSubmit(e){
         e.preventDefault()
-        dispacth(searchVideogames(name))
+        if(name.length===0){
+          alert("Por favor ingrese el Nombre de Videogame")  
+        }else{
+            dispacth(searchVideogames(name))
+            SetName(" ")  
+        }
+       
     }
  
     return (<div>

@@ -7,7 +7,8 @@ export const  FILTER_BY_GENRE ="FILTER_BY_GENRE";
 export const FILTER_CREATED="FILTER_CREATED";
 export const SORT_VGAMES="SORT_VGAMES";
 export const SEARCH_VIDEOGAMES="SEARCH_VIDEOGAMES"
-
+export const  POST_VIDEOGAME="POST_VIDEOGAME"
+export const GET_DETAIL="GET_DETAIL"
 
 //* Trae todos los videojuegos
 export function getVideogames() {
@@ -92,4 +93,31 @@ export  function sortvgames(payload) {
   }
 }
 
+export function postVideogame(payload){
+  return async function(dispatch){
+    const response= await axios.post("http://localhost:3001/videogame",payload)
+    return response;
+  }
+}
 
+
+
+
+
+
+export function getDetail(id){
+  return async function(dispatch){
+    try {
+      const result= await axios.get("http://localhost:3001/videogame/" + id);
+      return dispatch({
+            type:GET_DETAIL,
+            payload:result.data
+      })  
+      
+    } catch (error) {
+      console.log(error)
+    }
+  
+  }
+
+}

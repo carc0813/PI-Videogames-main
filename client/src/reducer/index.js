@@ -4,13 +4,15 @@ import { FILTER_BY_GENRE } from "../action/index.js";
 import { FILTER_CREATED } from "../action/index.js";
 import { SORT_VGAMES } from "../action/index.js";
 import { SEARCH_VIDEOGAMES} from "../action/index.js";
-
+import { POST_VIDEOGAME } from "../action/index.js";
+import { GET_DETAIL } from "../action/index.js";
 
 
 const initialState = {
   videogames: [],
   allVideogames:[],
   genres:[],
+  detail:[]
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -93,7 +95,16 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
                 videogames: sortedArr
             }
-        }           
+        } case POST_VIDEOGAME:
+        return {
+          ...state,
+        }
+         case GET_DETAIL:
+             return {
+          ...state,
+          detail: action.payload,
+        }
+             
     default:
       return state;
   }

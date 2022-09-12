@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import Card from "../Card/Card";
 import Paginado from "../Paginado/Paginado.jsx";
 import SearchBar from "../SearchBar/SearchBar.jsx";
-import stl from "../Home/Home.css";
+import  "../Home/Home.css";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -72,20 +72,22 @@ const [order,setOrder]=useState(""); //estado local
 
   return (
     
- <div >
-        <div className="c1" /*className="filter"*/>
-           <div className="c2">
-              <div>
-                   <Link to= '/videogame'>
-                  <button className="hpbot">Add New Videogame</button>
-                   </Link>
-                   <SearchBar/>
-                    
+ <div className="c1" >
+        <div  className="c2"/*className="filter"*/>
+               <div>
                    <button className="hpbot" onClick={(e) => {handleClick(e)}}>
                      volver a cargar Videogames 
                     </button>
-              </div>
-              <div className="filter">
+                </div>
+                <div>
+                <Link to= '/videogame'>
+                     <button className="hpbot">Add New Videogame</button>
+                </Link>
+                </div>
+                  <div>
+                      <SearchBar/>
+                  </div>
+            <div className="filter">
                 <div >
                    <div >Filter by Genre</div>
                       <select className="hpfilter" onChange={(e) => handleFilterGenres(e)}>
@@ -93,6 +95,16 @@ const [order,setOrder]=useState(""); //estado local
                      {generos.map((G) => (
                      <option value={G.name} key={G.id}>{G.name}</option>
                            ))} 
+                     </select>
+                 </div>
+                <div>
+                    <div>Order</div>
+                    <select className="hpfilter" onChange={(e) =>handleSortvgames (e)} >
+                      <option value="All" default>All</option>
+                      <option value="asc_name">Alphabetically (A-Z)</option>
+                      <option value="desc_name">Alphabetically (Z-A)</option>
+                      <option value="asc_rating">Rating (Lower-Higher)</option>
+                     <option value="desc_rating">Rating (Higher-Lower)</option>
                      </select>
                  </div>
                  <div>
@@ -103,22 +115,8 @@ const [order,setOrder]=useState(""); //estado local
                        <option value="Created">User videogames</option>
                       </select>
                 </div >
-              <div>
-                    <div>Order</div>
-                    <select className="hpfilter" onChange={(e) =>handleSortvgames (e)} >
-                      <option value="All" default>All</option>
-                      <option value="asc_name">Alphabetically (A-Z)</option>
-                      <option value="desc_name">Alphabetically (Z-A)</option>
-                      <option value="asc_rating">Rating (Lower-Higher)</option>
-                     <option value="desc_rating">Rating (Higher-Lower)</option>
-                     </select>
-               </div>
+              </div>  {/* ciere del filter */}
            </div>
-           </div >
-          
-        </div>
-       
-
         <div className="grid-layout">
         {videoGap?.map((c) => {
           return (

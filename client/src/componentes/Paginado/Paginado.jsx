@@ -1,4 +1,5 @@
 import React from "react";
+import "./Paginado.css";
 
 export default function Paginado({ videoPerPage, paginado, videitos }) {
   const numberPag = [];
@@ -6,17 +7,16 @@ export default function Paginado({ videoPerPage, paginado, videitos }) {
     numberPag.push(i);
   }
   return (
-    <nav>
-      <ul>
-        
-          {numberPag &&
-            numberPag.map((n) => (
-              <p className="number" key={n}>
-                <button onClick={() => paginado(n)} key={n}> {n}{" "}</button>
-              </p>
-            ))}
-        
-      </ul>
+    <nav className="pagination">
+      {numberPag &&
+        numberPag.map((n) => (
+          <li key={n} className="pagenr">
+            <button onClick={() => paginado(n)} key={n}>
+              {" "}
+              {n}{" "}
+            </button>
+          </li>
+        ))}
     </nav>
   );
 }

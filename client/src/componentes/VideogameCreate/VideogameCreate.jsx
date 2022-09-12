@@ -2,7 +2,7 @@ import React,{useState,useEffect} from "react";
 import {Link,useHistory} from "react-router-dom";
 import {getGenres, postVideogame} from "../../action/index";
 import {useDispatch,useSelector} from "react-redux"; 
-
+import "./VideogameCreate.css";
 
 // Validaciones
 function validate(game) {
@@ -134,7 +134,7 @@ function handleSubmit (e) {
   
   
   return (
-    <div>
+    <div className="container">
     <Link to="/home"><button>Volver</button></Link>
     <h1>Crea tu Videogame!</h1>
  

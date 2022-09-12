@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import Card from "../Card/Card";
 import Paginado from "../Paginado/Paginado.jsx";
 import SearchBar from "../SearchBar/SearchBar.jsx";
-
+import stl from "../Home/Home.css";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -67,56 +67,63 @@ const [order,setOrder]=useState(""); //estado local
     function handleSortvgames(e) {
       e.preventDefault(); 
       dispatch(sortvgames(e.target.value))
-      setOrder(`Order ${e.target.value}`)  
+      setOrder(`Order ${e.target.value}`) //me setea el estado local para poder tomar los cambios y poder renderizar 
   }
 
   return (
     
-       <div>
-          <Link to="/videogame">Crear Videogame</Link>
-               <h1>Videogames Cesar Restrepo</h1>
-            <button onClick={(e) => {handleClick(e)}}>
-              volver a cargar Videogames
-            </button>
-            <div>
-            <div>
-            <div>Filter by Genre</div>
-        <select onChange={(e) => handleFilterGenres(e)}>
-           <option value="All" default>All</option>
-          {generos.map((G) => (
-            <option value={G.name} key={G.id}>{G.name}</option>
-          ))} 
-        </select>
-        
-      </div>
-      <SearchBar/>
-      <div>
-        <div>Order</div>
-        <select onChange={(e) =>handleSortvgames (e)} >
-          <option value="All" default>All</option>
-          <option value="asc_name">Alphabetically (A-Z)</option>
-          <option value="desc_name">Alphabetically (Z-A)</option>
-          <option value="asc_rating">Rating (Lower-Higher)</option>
-          <option value="desc_rating">Rating (Higher-Lower)</option>
-        </select>
-      </div>
-      <div>
-        <div>Filter by Creator</div>
-        <select onChange={(e) => handleFilterCreated(e)} >
-          <option value="All" default>All</option>
-          <option value="Api">Api videogames</option>
-          <option value="Created">User videogames</option>
-        </select>
-      </div>
-      <Paginado
-       videoPerPage={videoPerPage}
-       videitos={ videitos.length}
-       paginado={paginado}
-          />
+ <div >
+        <div className="c1" /*className="filter"*/>
+           <div className="c2">
+              <div>
+                   <Link to= '/videogame'>
+                  <button className="hpbot">Add New Videogame</button>
+                   </Link>
+                   <SearchBar/>
+                    
+                   <button className="hpbot" onClick={(e) => {handleClick(e)}}>
+                     volver a cargar Videogames 
+                    </button>
+              </div>
+              <div className="filter">
+                <div >
+                   <div >Filter by Genre</div>
+                      <select className="hpfilter" onChange={(e) => handleFilterGenres(e)}>
+                      <option value="All" default>All</option>
+                     {generos.map((G) => (
+                     <option value={G.name} key={G.id}>{G.name}</option>
+                           ))} 
+                     </select>
+                 </div>
+                 <div>
+                     <div>Filter by Creator</div>
+                     <select className="hpfilter" onChange={(e) => handleFilterCreated(e)} >
+                     <option value="All" default>All</option>
+                     <option value="Api">Api videogames</option>
+                       <option value="Created">User videogames</option>
+                      </select>
+                </div >
+              <div>
+                    <div>Order</div>
+                    <select className="hpfilter" onChange={(e) =>handleSortvgames (e)} >
+                      <option value="All" default>All</option>
+                      <option value="asc_name">Alphabetically (A-Z)</option>
+                      <option value="desc_name">Alphabetically (Z-A)</option>
+                      <option value="asc_rating">Rating (Lower-Higher)</option>
+                     <option value="desc_rating">Rating (Higher-Lower)</option>
+                     </select>
+               </div>
+           </div>
+           </div >
+          
+        </div>
+       
+
+        <div className="grid-layout">
         {videoGap?.map((c) => {
           return (
             <Fragment key={c.id}>
-              <div className="gallery-container">
+              <div >
                 <Link to={"/home/" + c.id}>
                   <Card
                     name={c.name}
@@ -131,7 +138,14 @@ const [order,setOrder]=useState(""); //estado local
           );
         })}
       </div>
-  </div>   
-      
+    <div>
+</div>
+<Paginado
+       videoPerPage={videoPerPage}
+       videitos={ videitos.length}
+       paginado={paginado}
+       className="c4"
+          />
+</div>        
   );
 }

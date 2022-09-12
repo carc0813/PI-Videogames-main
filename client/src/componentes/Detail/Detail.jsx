@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getDetail } from "../../action";
 import { useEffect } from "react";
+import "./Detail.css";
+
 
 export default function Detail() {
 
@@ -21,9 +23,9 @@ export default function Detail() {
 
 
   return (
-    <div>
-       {myVideogame.name? (
-        <div>
+    <div className="wrapper">
+       {myVideogame.name ? (
+        <div className="contarea">
           <h1>Soy {myVideogame.name}</h1>
             <img src={myVideogame.img ? myVideogame.img : myVideogame.image} alt="" width="300px" height="250px" />
           <div>
@@ -48,17 +50,17 @@ export default function Detail() {
             <div className="platforms">
               <p>Play it at {myVideogame.platforms}.</p>
             </div>
+
           </div>
+          <Link to="/home">
+        <button className="botback" type="submit">
+          🡸
+        </button>
+      </Link>
         </div>
       ) : (
         <p>Loading....</p>
       )}
-
-      <Link to="/home">
-        <button className="button" type="submit">
-          🡸
-        </button>
-      </Link>  
-    </div>
+ </div>
   );
 }

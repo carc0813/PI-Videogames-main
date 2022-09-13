@@ -21,20 +21,14 @@ function validate(game) {
 
 
 
-
-
-
-
-
-
-
-
-
 export default function VideogameCreate ()  {
   const dispatch=useDispatch()
   const history = useHistory();
 
   const genres=useSelector((state)=> state.genres)
+  // console.log(genre)
+  
+  
   const [errors, setErrors] = useState({});
 
 
@@ -44,7 +38,7 @@ export default function VideogameCreate ()  {
     image: "",
     released: "",
      rating: 0,
-    genres: [],
+    genre: [],
     platforms: [],
     
    })
@@ -89,21 +83,21 @@ function handleCheck(e){
 
 
 function   handleSelect(e){
-  if(game.genres.includes(e.target.value)){
+  if(game.genre.includes(e.target.value)){
     alert("ya existe este genero")
   }else{
     setGame({
       ...game,
-      genres:[...game.genres,e.target.value]
+      genre:[...game.genre,e.target.value]
   })
  }
- 
+ console.log(game)
 }
 
 const handleDelete = (el) => {
   setGame({
     ...game,
-    genres: game.genres.filter((g) => g !== el),
+    genre: game.genre.filter((g) => g !== el),
   });
 };
 
@@ -124,7 +118,7 @@ function handleSubmit (e) {
       image: "",
       released: "",
       rating: 0,
-      genres: [],
+      genre: [],
       platforms: [],
   });
 
@@ -206,11 +200,14 @@ function handleSubmit (e) {
                 <label>-Genres-</label>
                 <div className="gendivs">
                     <select onChange={(e)=> handleSelect(e)}>
+                    
                       {genres.map((g)=>(
-                        <option value={g.name}>{g.name}</option>
+                        
+                        <option value={g.name} key={g.id}>{g.name}</option>
                       ))}
                    </select>
-                   <ul><li>{game.genres.map(el=>el + ",")}</li></ul>
+                   
+                   <ul><li>{game.genre.map(el=>el + ",")}</li></ul>
                 </div>
             </div>
              <div className="checks">
@@ -240,7 +237,7 @@ function handleSubmit (e) {
        <div className="">
         <h2>Genres</h2>
        </div>
-         {game.genres.map((el) => (
+         {game.genre.map((el) => (
         <div key={el} onClick={() => handleDelete(el)}>
           <p>{`${el}`}</p>
         </div>

@@ -56,7 +56,18 @@ router.get("/", async (req, res) => {
 
    const getAllVideogames= async()=>{
       const api= await getVidegamesApi();
-      const db= await  getVideogamesDb();
+      var db= await  getVideogamesDb();
+         db=db.map((videos)=>{
+          return {
+            id: videos.id,
+            name: videos.name,
+            rating: videos.rating,
+            image: videos.image,
+            genres: videos.genres &&
+            videos.genres.map((p) => p.name).filter((p) => p != null).join(", "),
+          };
+
+         })
       const result= api.concat(db);
 
       return result;
@@ -67,7 +78,7 @@ router.get("/", async (req, res) => {
     const allVideogames = await getAllVideogames();
     if (name) {
       const videogames = allVideogames.filter((v) =>
-        v.name.toLowerCase().includes(name.toLowerCase())); //si el perro existe guardame sus parametros aca.
+        v.name.toLowerCase().includes(name.toLowerCase())); 
       videogames.length
         ? res.status(200).send(videogames)
         : res.status(404).send("Videogames not found");

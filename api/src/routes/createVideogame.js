@@ -35,7 +35,7 @@ router.post('/', async (req, res) => {
 //     res.send('New video game has been added')
 //   });
 
-const { name, description, image, released, rating, platforms, genres } = req.body;
+const { name, description, image, released, rating, platforms, genre } = req.body;
 
 let platformString = platforms.toString();
 
@@ -48,7 +48,7 @@ let gameCreated = await Videogame.create({
   platforms: platformString,
 })
 
-genres.forEach(async (G) => {
+genre.forEach(async (G) => {
     let genresGame = await Genre.findOne({ where: { name: G } })
     await gameCreated.addGenre(genresGame)
 })

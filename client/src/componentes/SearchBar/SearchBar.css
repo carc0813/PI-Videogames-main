@@ -6,7 +6,7 @@
 
 }
 .sbbot {
-  background-color:darkslategrey;
+  background-color:rgb(47, 76, 79);
   color: whitesmoke;
   padding-top: 1px;
   cursor: pointer;
@@ -16,7 +16,7 @@
   transition-duration: 0.4s;
 }
 .sbbot:hover {
-  background-color:olive;
+  background-color:rgb(0, 128, 96);
   color: black; 
 }
 .sbinput{

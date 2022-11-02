@@ -8,12 +8,12 @@
 
 }
 .card {
-    background-color: rgb(241, 210, 169);
+    background-color: rgb(24, 222, 126);
     height: 200px;
     width: 250px;
     margin: 5px;
     padding: 1px;
-    border:3px solid rgb(128, 21, 95);
+    border:3px solid rgb(20, 2, 14);
     border-radius: 10px;
 }
 

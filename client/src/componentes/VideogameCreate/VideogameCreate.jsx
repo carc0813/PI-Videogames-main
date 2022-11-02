@@ -40,7 +40,7 @@ export default function VideogameCreate ()  {
      rating: 0,
     genre: [],
     platforms: [],
-    
+    //createdInDb
    })
 
 
@@ -51,7 +51,7 @@ export default function VideogameCreate ()  {
   },[dispatch]);
 
  
-  
+  //para los inputs
   function ChangeInput(e){
     setGame({
       ...game,
@@ -70,7 +70,7 @@ export default function VideogameCreate ()  {
 }
 
 
-
+//para el chechbox
 function handleCheck(e){
   if(e.target.checked){
       setGame({
@@ -81,7 +81,7 @@ function handleCheck(e){
   console.log(game)
 }
 
-
+//select para seleccionar los generos 
 function   handleSelect(e){
   if(game.genre.includes(e.target.value)){
     alert("ya existe este genero")
@@ -120,6 +120,7 @@ function handleSubmit (e) {
       rating: 0,
       genre: [],
       platforms: [],
+     //createdInDb
   });
 
   history.push("/home");

@@ -9,9 +9,11 @@ export const SORT_VGAMES="SORT_VGAMES";
 export const SEARCH_VIDEOGAMES="SEARCH_VIDEOGAMES"
 export const  POST_VIDEOGAME="POST_VIDEOGAME"
 export const GET_DETAIL="GET_DETAIL"
+// export const NUEVO_RATING="NUEVO_RATING"
+
 
 //* Trae todos los videojuegos
-export function getVideogames() {
+ export function getVideogames() {
     return  function (dispatch) {
       axios.get('http://localhost:3001/videogames')
         .then((videogames) => {
@@ -101,10 +103,6 @@ export function postVideogame(payload){
 }
 
 
-
-
-
-
 export function getDetail(id){
   return async function(dispatch){
     try {
@@ -112,7 +110,7 @@ export function getDetail(id){
       return dispatch({
             type:GET_DETAIL,
             payload:result.data
-      })  
+    })  
       
     } catch (error) {
       console.log(error)
@@ -121,3 +119,11 @@ export function getDetail(id){
   }
 
 }
+
+
+// export function getNuevoRatin(payload){
+//     return {
+//         type:NUEVO_RATING,
+//         payload
+//     }
+// }

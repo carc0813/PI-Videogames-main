@@ -5,12 +5,13 @@ import { getVideogames,
   filterByGenres,
   getGenres,
   filterCreated,
-  sortvgames} from "../../action/index.js";
+  sortvgames,getNuevoRatin} from "../../action/index.js";
 
 import { Link } from "react-router-dom";
 import Card from "../Card/Card";
 import Paginado from "../Paginado/Paginado.jsx";
 import SearchBar from "../SearchBar/SearchBar.jsx";
+import Loading from "../Loading/Loading.jsx";
 import  "../Home/Home.css";
 
 export default function Home() {
@@ -60,6 +61,7 @@ const [order,setOrder]=useState(""); //estado local
 
   // Filtrado por API/DB
   function handleFilterCreated(e){
+    e.preventDefault();
     dispatch(filterCreated(e.target.value))
     setOrder(e.target.value)}
 
@@ -69,6 +71,11 @@ const [order,setOrder]=useState(""); //estado local
       dispatch(sortvgames(e.target.value))
       setOrder(`Order ${e.target.value}`) //me setea el estado local para poder tomar los cambios y poder renderizar 
   }
+
+  // function handleFilterRating(e){
+  //    e.preventDefault()
+  //    dispatch(getNuevoRatin(e.target.value))
+  // }
 
   return (
     
@@ -84,6 +91,9 @@ const [order,setOrder]=useState(""); //estado local
                      <button className="hpbot">Add New Videogame</button>
                 </Link>
                 </div>
+                 {/* <div>
+                     <button onClick={(e)=> handleFilterRating(e)}>recargar Rating mayor 4</button>
+                 </div> */}
                   <div>
                       <SearchBar/>
                   </div>
@@ -109,32 +119,35 @@ const [order,setOrder]=useState(""); //estado local
                  </div>
                  <div>
                      <div>Filter by Creator</div>
-                     <select className="hpfilter" onChange={(e) => handleFilterCreated(e)} >
-                     <option value="All" default>All</option>
-                     <option value="Api">Api videogames</option>
-                       <option value="Created">User videogames</option>
-                      </select>
-                </div >
+                        <select className="hpfilter" onChange={(e) => handleFilterCreated(e)} >
+                           <option value="All" default>All</option>
+                           <option value="Api">Api videogames</option>
+                           <option value="Created">User videogames</option>
+                        </select>
+                    </div>
               </div>  {/* ciere del filter */}
            </div>
         <div className="grid-layout">
-        {videoGap?.map((c) => {
+        {videoGap.length > 0 ? videoGap.map((c) => {
           return (
             <Fragment key={c.id}>
-              <div >
-                <Link to={"/home/" + c.id}>
+              <div>
+                  <Link to={"/home/" + c.id}>
                   <Card
                     name={c.name}
                     image={c.image}
                     genres={c.genres}
                     rating={c.rating}
-                    key={c.id}
-                  />
-                </Link>
-              </div>
+                    key={c.id} />
+                  </Link>
+               </div>
             </Fragment>
           );
-        })}
+        }):<section className="flex-container">
+              <div className="cargando">
+                  <Loading />
+              </div>
+            </section>}
       </div>
     <div>
 </div>

@@ -1,35 +1,41 @@
 .container {
-    display:flex;
-    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap; /* Permite que las cards se acomoden en varias filas */
     justify-content: center;
-    align-content:space-around;
+    align-content: space-around;
     padding: 10px;
     margin: 0;
-
 }
+
 .card {
     background-color: rgb(24, 222, 126);
-    height: 200px;
+    height: 250px;
     width: 250px;
-    margin: 5px;
-    padding: 1px;
-    border:3px solid rgb(20, 2, 14);
+    margin: 10px; /* Más espacio entre cards */
+    padding: 10px; /* Espaciado interno */
+    border: 3px solid rgb(20, 2, 14);
     border-radius: 10px;
+    text-align: center; /* Centrar texto */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: space-between;
 }
 
-h4 {
-    margin: 2px;
-    padding: 1px;  
+.card img {
+    width: 100%; /* Imagen ocupa el ancho completo */
+    height: 150px; /* Tamaño fijo para que todas sean iguales */
+    object-fit: cover; /* Evita distorsiones */
+    border-radius: 5px;
 }
 
-p {
-    margin: 5px;
-    padding: 1px;  
+.card h4 {
+    font-size: 16px;
+    margin: 5px 0;
 }
- .imag {
-    height: 90px;
-    width: 120px; 
-    margin: 1px;
-    padding: 3px;
-    border: 2px solid black;
- }
+
+.card p, .card span {
+    font-size: 14px;
+    margin: 3px 0;
+}
+

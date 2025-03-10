@@ -5,7 +5,7 @@ import { getVideogames,
   filterByGenres,
   getGenres,
   filterCreated,
-  sortvgames,getNuevoRatin} from "../../action/index.js";
+  sortvgames} from "../../action/index.js";
 
 import { Link } from "react-router-dom";
 import Card from "../Card/Card";

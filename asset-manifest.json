@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/PI-Videogames-main/static/css/main.6021d3c8.chunk.css",
+    "main.js": "/PI-Videogames-main/static/js/main.785f71e8.chunk.js",
+    "main.js.map": "/PI-Videogames-main/static/js/main.785f71e8.chunk.js.map",
+    "runtime-main.js": "/PI-Videogames-main/static/js/runtime-main.ec4fa58c.js",
+    "runtime-main.js.map": "/PI-Videogames-main/static/js/runtime-main.ec4fa58c.js.map",
+    "static/js/2.2c71f145.chunk.js": "/PI-Videogames-main/static/js/2.2c71f145.chunk.js",
+    "static/js/2.2c71f145.chunk.js.map": "/PI-Videogames-main/static/js/2.2c71f145.chunk.js.map",
+    "static/js/3.c2dceed4.chunk.js": "/PI-Videogames-main/static/js/3.c2dceed4.chunk.js",
+    "static/js/3.c2dceed4.chunk.js.map": "/PI-Videogames-main/static/js/3.c2dceed4.chunk.js.map",
+    "index.html": "/PI-Videogames-main/index.html",
+    "static/css/main.6021d3c8.chunk.css.map": "/PI-Videogames-main/static/css/main.6021d3c8.chunk.css.map",
+    "static/js/2.2c71f145.chunk.js.LICENSE.txt": "/PI-Videogames-main/static/js/2.2c71f145.chunk.js.LICENSE.txt",
+    "static/media/loading.49c0efd1.gif": "/PI-Videogames-main/static/media/loading.49c0efd1.gif",
+    "static/media/Home.css": "/PI-Videogames-main/static/media/mario.3a7e6dfd.jpg",
+    "static/media/portal2.2abe3641.jpg": "/PI-Videogames-main/static/media/portal2.2abe3641.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ec4fa58c.js",
+    "static/js/2.2c71f145.chunk.js",
+    "static/css/main.6021d3c8.chunk.css",
+    "static/js/main.785f71e8.chunk.js"
+  ]
+}
